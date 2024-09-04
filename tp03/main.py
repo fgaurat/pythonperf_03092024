@@ -1,5 +1,13 @@
 
+class DivBy12Error(Exception):
+    
+    def __init__(self):
+        super().__init__("Division par 12 !")
+    
 def div(a,b):
+    if b==12:
+        # raise Exception('Division par 12 !')
+        raise DivBy12Error()
     return a/b
 
 def call_div(a,b):
@@ -15,10 +23,12 @@ def call_div(a,b):
 def main():
     try:
         a = 2
-        b=0
+        b = 12
         c = call_div(a, b)
         print(c)
         
+    except DivBy12Error as e :
+        print("DivBy12Error",e)
     except Exception as e :
         print(e)
     print("la suite")
