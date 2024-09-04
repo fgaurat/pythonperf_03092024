@@ -1,4 +1,5 @@
 from Rectangle import Rectangle
+from DataRectangle import DataRectangle
 
 
 def main():
@@ -32,5 +33,26 @@ def main():
 
     print(r4.longueur)
     print(r4.largeur)
+    
+    print(50*'-')
+    r = Rectangle(25,2)
+    r1 = Rectangle(25,2)
+    print(r)
+
+    if r==r1:
+        print('ok')
+    else:
+        print('ko')
+
+    print(50*'-')
+    d = DataRectangle(5,9)
+    d1 = DataRectangle(5,9)
+    if d==d1:
+        print("ok DataRectangle")
+    else:
+        print("ko DataRectangle")
+    print(d)
+    print(d.surface)
+
 if __name__=='__main__':
     main()

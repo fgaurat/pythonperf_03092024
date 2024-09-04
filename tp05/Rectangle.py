@@ -41,6 +41,10 @@ class Rectangle:
     def get_cpt():
         return Rectangle.__cpt
 
+    @property
+    def surface(self):
+        return self.longueur*self.largeur
+
 
     def __str__(self):
         return f"{__class__.__name__} {self.longueur=}, {self.largeur=}"
