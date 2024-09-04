@@ -13,4 +13,11 @@ class Carre(Rectangle):
     
     @cote.setter
     def cote(self,cote):
+        self.longueur = self.largeur = cote
+        # super().longueur = cote 
+        # super().largeur = cote
         self.__cote = cote
+
+    def __str__(self):
+        return f"{__class__.__name__} {self.cote=}"
+ 
