@@ -8,17 +8,19 @@ def filterFemale(stream):
             yield elem
 
 def main():
-    dao = CustomerDAO('customers_db.db')
-    customers = dao.findAll()
-    # c1 = next(customers)
-    # print(c1)
-    # c2 = next(customers)
-    # print(c2)
+    # dao = CustomerDAO('customers_db.db')
+
+    with CustomerDAO('customers_db.db') as dao:
+        customers = dao.findAll()
+        # c1 = next(customers)
+        # print(c1)
+        # c2 = next(customers)
+        # print(c2)
 
 
-    # all = list(customers)
+        # all = list(customers)
 
-    for c in filterFemale(customers):
-        print(c)
+        for c in filterFemale(customers):
+            print(c)
 if __name__=='__main__':
     main()

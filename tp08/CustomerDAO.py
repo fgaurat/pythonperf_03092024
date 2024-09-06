@@ -7,6 +7,20 @@ class CustomerDAO:
     def __init__(self,db_file):
         self.con = sqlite3.connect(db_file)
 
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type,exc_value,exc_traceback):
+        if exc_type is None:
+            self.con.commit()
+        else:
+            self.con.rollback()
+        
+        self.con.close()
+        self.con = None
+
+
     def findAll(self):
         
         sql = "SELECT id,first_name,last_name,email,gender,ip_address FROM customers_tbl"
@@ -18,4 +32,5 @@ class CustomerDAO:
         
 
     def __del__(self):
-        self.con.close()
+        if self.con is not None:
+            self.con.close()
